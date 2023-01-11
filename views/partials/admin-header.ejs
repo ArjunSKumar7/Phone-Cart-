@@ -1,0 +1,51 @@
+<header class="main-header navbar" style="margin-left: -300px;">
+  <div class="col-search">
+    <form class="searchform">
+      <!-- <div class="input-group">
+        <input
+          list="search_terms"
+          type="text"
+          class="form-control"
+          placeholder="Search term"
+        />
+        <button class="btn btn-light bg" type="button">
+          <i class="material-icons md-search"></i>
+        </button>
+      </div> -->
+      <datalist id="search_terms">
+        <option value="Products"></option>
+        <option value="New orders"></option>
+        <option value="Apple iphone"></option>
+        <option value="Ahmed Hassan"></option>
+      </datalist>
+    </form>
+  </div>
+
+  
+  
+      
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle"  style="background-color:  #088178;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <% if ( locals.admins) { %>
+            <%=admins.name %>
+            <%} else { %>
+            Account 
+            <% } %>
+
+        
+         
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <% if (locals.admins) { %>
+         <a class="dropdown-item" href="/admin/logout"> log out</a></li>
+          <%} else { %>
+        <li><a class="dropdown-item" href="/admin/login"> log in</a></li>
+        <% } %>
+   </ul>
+      </div>
+   
+    </ul>
+  </div>
+  </div>
+</header>
+
