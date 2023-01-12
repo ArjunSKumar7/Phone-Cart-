@@ -144,6 +144,13 @@ module.exports = {
 
   },
 
+  //add-to-cart
+
+  addtocart:(req,res)=>{
+    userhelpers.addToCartItem(req.params.id,req.session.user._id)
+
+  },
+
   //getuser logout
 
   getLogout: (req, res) => {

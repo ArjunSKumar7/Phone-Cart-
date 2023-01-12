@@ -3,9 +3,11 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const AppError=require("./Utils/appError")
 const expressLayouts = require("express-ejs-layouts");
 const session= require('express-session')
 require('dotenv').config();
+
 
 
 
@@ -51,6 +53,29 @@ app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  app.all("*",(req,res,next )=>{ 
+
+    // const err =new Error(`can't find ${req.originalUrl} on this server`)
+    // err.ststus="fail";
+    // err.statuscode=404
+    // next(err);
+    next(new AppError(`can't find ${req.originalUrl} on this server`,404))
+  });
+
+//GlobaL error Handeling
+  app.use((err,req,res,next)=>{
+
+    (err.statuscode=err.status || 500);
+   (err.status=err.status||"error");
+   res.status(err.statuscode).json({
+    status:err.status,
+    message:err.message,
+   });
+   next();
+  });
+
+  
 
   // render the error page
   res.status(err.status || 500);

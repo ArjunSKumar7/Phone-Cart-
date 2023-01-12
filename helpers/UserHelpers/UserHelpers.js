@@ -90,6 +90,11 @@ module.exports = {
         reject(false)
        })
     })
+  },
+  addToCartItem:(proId,userId)=>{
+    return new Promise((resolve, reject) => {
+      
+    })
   }
 
  

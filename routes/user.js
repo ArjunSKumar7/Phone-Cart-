@@ -31,4 +31,6 @@ router.get("/cart",auths.userauth,userProductController.getcart)
 router.get("/productdetails/:id",auths.userauth,userProductController.prodDetails)
   
 router.get("/forgopass",controllers.getforgo)
+
+router.get('/add-to-cart/:id',controllers.addtocart)
 module.exports = router;

@@ -68,12 +68,35 @@ const categorySchema= new mongoose.Schema({
     },
     category:{
       type:String
+    },
+    
+    listbol:{
+      type:Boolean,
+      default:false
     }
     
 
  })
+
+ const cartSchema=new mongoose.Schema({
+  user:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref: "user"
+  } ,
+  
+  cartItems:[
+    {
+
+   productId:{type:mongoose.Schema.Types.ObjectId,ref:'product'},
+   Quantity:{type:Number,default:1},
+   price:{type:Number}
+    }
+  ],
+ })
+
 module.exports={
  user :mongoose.model('user',userschema),
 category:mongoose.model('Category',categorySchema),
+cart:mongoose.model('cart',cartSchema),
   product:mongoose.model('product',productSchema)
 }
