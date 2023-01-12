@@ -57,9 +57,10 @@ module.exports = {
               if(users.blocked==false){
                 await bcrypt.compare(userData.password, users.Password).then((status) => {
                     if (status) {
-                     userName=users.username
+                     userName=users.username,
+
                         // response.status
-                        resolve({response,loggedinstatus:true,userName})
+                        resolve({response,loggedinstatus:true,userName,userId:users._id})
                         console.log(userName);
                     } else {
                         resolve({ loggedinstatus: false })

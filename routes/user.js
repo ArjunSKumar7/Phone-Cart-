@@ -8,7 +8,7 @@ const auths=require('../middlewares/middleware')
 /* GET home page. */
 router.get("/",controllers.getHome)
   
-router.get("/login",auths.userauth, controllers.getUserLogin)
+router.get("/login", controllers.getUserLogin)
 
 router.post("/login", controllers.postUserLogin )
 
@@ -30,4 +30,5 @@ router.get("/cart",auths.userauth,userProductController.getcart)
 
 router.get("/productdetails/:id",auths.userauth,userProductController.prodDetails)
   
+router.get("/forgopass",controllers.getforgo)
 module.exports = router;

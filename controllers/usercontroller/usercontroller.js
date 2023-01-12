@@ -137,6 +137,13 @@ module.exports = {
     // If it was unsuccessful, the status will be 'pending' or 'failed'
   }, //redirect
 
+/////////////////////////////////////////////block cheythu forgo pass cheyyunu
+  getforgo:(req,res)=>{
+
+    res.render("user/forgopass")
+
+  },
+
   //getuser logout
 
   getLogout: (req, res) => {
